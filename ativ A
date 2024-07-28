@@ -1,0 +1,79 @@
+#include<stdio.h>
+
+int main(){
+    int i, j, op;
+    int v[3][3];
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            printf("digite os elementos da matrix 3x3: ");
+            scanf("%d", &v[i][j]);
+        }
+    }
+    printf("\nescolha uma das alternativas:\n"
+           "1)imprimir todos os elementos da matriz\n"
+           "2)somar os elementos de cada linha e mostrar o resultado\n"
+           "3)somar os elementos de cada coluna e mostrar o resultado\n"
+           "4)imprimir os elementos da diagonal principal\n"
+           "5)imprimir todos os elementos, exceto os da diagonal principa\n"
+           "6)imprimir os elementos, tal que a linha e par e a coluna e impar\n"
+           "7)imprimir os elementos da coluna 0, apenas\n"
+           "8)imprimir apenas os elementos cuja coluna seja multiplo de 2\t");
+    scanf("%d", &op);
+    switch (op){
+    case 1:
+        for(i=0;i<3;i++){
+            printf("\n");
+            for(j=0;j<3;j++){
+                printf("%d ", v[i][j]);
+            }
+        } 
+        break;
+    case 2:
+        printf("linha 0 = %d\n",v[0][0] + v[0][1] + v[0][2]);
+        printf("linha 1 = %d\n",v[1][0] + v[1][1] + v[1][2]);
+        printf("linha 2 = %d\n",v[2][0] + v[2][1] + v[2][2]);
+        break;
+    case 3:
+        printf("coluna 0 = %d\n",v[0][0] + v[1][0] + v[2][0]);
+        printf("coluna 1 = %d\n",v[0][1] + v[1][1] + v[2][1]);
+        printf("coluna 2 = %d\n",v[0][2] + v[1][2] + v[2][2]);
+        break;
+    case 4:
+        printf("%d\n", v[0][0]);
+        printf("  %d\n", v[1][1]);
+        printf("    %d", v[2][2]);
+        break;
+    case 5:
+        printf("   %d %d\n", v[0][1], v[0][2]);
+        printf("%d    %d\n", v[1][0], v[1][2]);
+        printf("%d %d", v[2][0], v[2][1]);
+        break;
+    case 6:
+        printf("%d\n", v[0][1]);
+        printf("%d\n", v[2][1]);
+        break;
+    case 7:
+        for(i=0;i<3;i++){
+            printf("\n");
+            printf("%d ", v[i][0]);
+        }
+        break;
+    case 8:
+        for(i=0;i<3;i++){    
+            if(v[i][0] % 2 == 0){
+                printf("c0\n%d\n", v[i][0]);
+            }
+            if(v[i][1] % 2 == 0){
+                printf("c1\n%d\n", v[i][1]);
+            }
+            if(v[i][2] % 2 == 0){
+                printf("c2\n%d\n", v[i][2]);
+            }
+        }
+        break;
+    default:
+        printf("opcao invalida");
+        break;
+    }
+    return 0;
+}
